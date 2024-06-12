@@ -35,6 +35,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import com.example.cupcake.R
 import com.example.cupcake.data.OrderUiState
 import com.example.cupcake.ui.components.FormattedPriceLabel
@@ -48,7 +49,9 @@ import com.example.cupcake.ui.theme.CupcakeTheme
 @Composable
 fun OrderSummaryScreen(
     orderUiState: OrderUiState,
-    modifier: Modifier = Modifier
+    onCancelButtonClicked: () -> Unit,
+    onSendButtonClicked: (String, String) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     val resources = LocalContext.current.resources
 
@@ -103,13 +106,13 @@ fun OrderSummaryScreen(
             ) {
                 Button(
                     modifier = Modifier.fillMaxWidth(),
-                    onClick = {}
+                    onClick = {onSendButtonClicked(newOrder, orderSummary)}
                 ) {
                     Text(stringResource(R.string.send))
                 }
                 OutlinedButton(
                     modifier = Modifier.fillMaxWidth(),
-                    onClick = {}
+                    onClick = onCancelButtonClicked
                 ) {
                     Text(stringResource(R.string.cancel))
                 }
@@ -118,7 +121,7 @@ fun OrderSummaryScreen(
     }
 }
 
-@Preview
+/*@Preview
 @Composable
 fun OrderSummaryPreview() {
     CupcakeTheme {
@@ -127,4 +130,4 @@ fun OrderSummaryPreview() {
             modifier = Modifier.fillMaxHeight()
         )
     }
-}
+}*/

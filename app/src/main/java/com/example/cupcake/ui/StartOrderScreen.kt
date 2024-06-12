@@ -15,9 +15,15 @@
  */
 package com.example.cupcake.ui
 
+import android.app.Activity
+import android.util.Log
 import androidx.annotation.StringRes
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -27,16 +33,23 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.example.cupcake.CupcakeScreen
 import com.example.cupcake.R
 import com.example.cupcake.data.DataSource
 import com.example.cupcake.ui.theme.CupcakeTheme
@@ -49,7 +62,10 @@ import com.example.cupcake.ui.theme.CupcakeTheme
 @Composable
 fun StartOrderScreen(
     quantityOptions: List<Pair<Int, Int>>,
-    modifier: Modifier = Modifier
+    onNextButtonClicked: (Int) -> Unit,
+    onCancelButtonClicked: () -> Unit,
+    navController: NavController,
+    modifier: Modifier = Modifier,
 ) {
     Column(
         modifier = modifier,
@@ -81,10 +97,24 @@ fun StartOrderScreen(
             )
         ) {
             quantityOptions.forEach { item ->
-                SelectQuantityButton(
-                    labelResourceId = item.first,
-                    onClick = {}
-                )
+                val context = LocalContext.current
+                if (stringResource(id = item.first) == "nah.") {
+                        SelectQuantityButton(
+                            labelResourceId = item.first,
+                            onClick = {(context as? Activity)?.finish()},
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = Color.Transparent,
+                                contentColor = Color.Black,
+                            ),
+                        )
+                } else {
+                    SelectQuantityButton(
+                        labelResourceId = item.first,
+                        onClick = {
+                            onNextButtonClicked(item.second)
+                        },
+                    )
+                }
             }
         }
     }
@@ -98,25 +128,29 @@ fun StartOrderScreen(
 fun SelectQuantityButton(
     @StringRes labelResourceId: Int,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    colors: ButtonColors = ButtonDefaults.buttonColors()
 ) {
     Button(
         onClick = onClick,
-        modifier = modifier.widthIn(min = 250.dp)
+        modifier = modifier.widthIn(min = 250.dp),
+        colors = colors,
+        border = BorderStroke(2.dp, MaterialTheme.colorScheme.primary),
+        shape = MaterialTheme.shapes.small
     ) {
         Text(stringResource(labelResourceId))
     }
 }
 
-@Preview
-@Composable
-fun StartOrderPreview() {
-    CupcakeTheme {
-        StartOrderScreen(
-            quantityOptions = DataSource.quantityOptions,
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(dimensionResource(R.dimen.padding_medium))
-        )
-    }
-}
+//@Preview
+//@Composable
+//fun StartOrderPreview() {
+//    CupcakeTheme {
+//        StartOrderScreen(
+//            quantityOptions = DataSource.quantityOptions,
+//            modifier = Modifier
+//                .fillMaxSize()
+//                .padding(dimensionResource(R.dimen.padding_medium))
+//        )
+//    }
+//}

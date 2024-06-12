@@ -37,6 +37,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
+import com.example.cupcake.CupcakeScreen
 import com.example.cupcake.R
 import com.example.cupcake.ui.components.FormattedPriceLabel
 import com.example.cupcake.ui.theme.CupcakeTheme
@@ -51,8 +53,10 @@ import com.example.cupcake.ui.theme.CupcakeTheme
 fun SelectOptionScreen(
     subtotal: String,
     options: List<String>,
+    onCancelButtonClicked: () -> Unit = {},
+    onNextButtonClicked: () -> Unit = {},
     onSelectionChanged: (String) -> Unit = {},
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     var selectedValue by rememberSaveable { mutableStateOf("") }
 
@@ -69,7 +73,7 @@ fun SelectOptionScreen(
                             selectedValue = item
                             onSelectionChanged(item)
                         }
-                    ),
+                    ).fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     RadioButton(
@@ -105,7 +109,7 @@ fun SelectOptionScreen(
         ) {
             OutlinedButton(
                 modifier = Modifier.weight(1f),
-                onClick = {}
+                onClick = onCancelButtonClicked
             ) {
                 Text(stringResource(R.string.cancel))
             }
@@ -113,7 +117,7 @@ fun SelectOptionScreen(
                 modifier = Modifier.weight(1f),
                 // the button is enabled when the user makes a selection
                 enabled = selectedValue.isNotEmpty(),
-                onClick = {}
+                onClick = onNextButtonClicked
             ) {
                 Text(stringResource(R.string.next))
             }
@@ -121,14 +125,14 @@ fun SelectOptionScreen(
     }
 }
 
-@Preview
-@Composable
-fun SelectOptionPreview() {
-    CupcakeTheme {
-        SelectOptionScreen(
-            subtotal = "299.99",
-            options = listOf("Option 1", "Option 2", "Option 3", "Option 4"),
-            modifier = Modifier.fillMaxHeight()
-        )
-    }
-}
+//@Preview
+//@Composable
+//fun SelectOptionPreview() {
+//    CupcakeTheme {
+//        SelectOptionScreen(
+//            subtotal = "299.99",
+//            options = listOf("Option 1", "Option 2", "Option 3", "Option 4"),
+//            modifier = Modifier.fillMaxHeight()
+//        )
+//    }
+//}

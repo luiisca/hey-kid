@@ -15,10 +15,11 @@
 -->
 <resources>
     <string name="app_name">Cupcake</string>
-    <string name="order_cupcakes">Order Cupcakes</string>
-    <string name="one_cupcake">One Cupcake</string>
+    <string name="order_cupcakes">Hey kid&#8230; want a cupcake?</string>
+    <string name="one_cupcake">One Cupcake please</string>
     <string name="six_cupcakes">Six Cupcakes</string>
     <string name="twelve_cupcakes">Twelve Cupcakes</string>
+    <string name="nah">nah.</string>
     <string name="choose_flavor">Choose Flavor</string>
     <string name="vanilla">Vanilla</string>
     <string name="chocolate">Chocolate</string>
@@ -37,7 +38,7 @@
     <string name="subtotal_price">Subtotal %s</string>
     <string name="total_price">Total %s</string>
     <string name="new_cupcake_order">New Cupcake Order</string>
-    <string name="order_details">Quantity: %1$s \nFlavor: %2$s \nPickup date: %3$s \nTotal: %4$s \n\nThank you!</string>
+    <string name="order_details">Quantity: %1$s \nFlavor: %2$s \nPickup date: %3$s \nTotal: %4$s \n\nGot you!</string>
     <string name="back_button">Back</string>
     <plurals name="cupcakes">
         <item quantity="one">%d cupcake</item>
