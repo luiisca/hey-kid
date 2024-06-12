@@ -1,21 +1,35 @@
-Cupcake app
-=================================
+# Cupcake Order App
 
-This app contains an order flow for cupcakes with options for quantity, flavor, and pickup date.
-The order details get displayed on an order summary screen and can be shared to another app to
-send the order.
+A simple app to learn about navigation in Jetpack Compose through a cupcake ordering process.
 
+![Cupcake Order App Screenshot](./screenshot.png)
 
-Pre-requisites
---------------
-* Experience with Kotlin syntax.
-* How to create and run a project in Android Studio.
-* How to create composable functions 
+## Features
+- **Order Cupcake Flow**: Seamlessly navigate through the cupcake ordering process with Jetpack Compose navigation components.
+- **Order Summary**: Easily review your cupcake order details before finalizing.
+- **Multiple Flavors**: Choose from a variety of delicious cupcake flavors.
+- **Quantity Selection**: Select the number of cupcakes you want to order.
+- **Pickup Date**: Choose a convenient pickup date for your order.
+- **Share Order**: Effortlessly share your cupcake order details with friends and family through other apps using Android intents.
 
+## Installation Instructions
+1. [Download](https://github.com/luiisca/hey-kid/releases/download/v1.0/hey-kid.apk) the APK file.
+2. Install the APK on your Android device by enabling installation from unknown sources if necessary.
+3. Open the app and start navigating through the cupcake ordering process using the Jetpack Compose navigation features!
 
-Getting Started
----------------
-1. Install Android Studio, if you don't already have it.
-2. Download the sample.
-3. Import the sample into Android Studio.
-4. Build and run the sample.
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+### Prerequisites
+
+- Android Studio installed on your machine.
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/yourusername/cupcake-order-app.git
+   ```
+2. Open the project in Android Studio.
+3. Build and run the app on your Android device or emulator.
