@@ -5,14 +5,15 @@ A simple app to learn about navigation in Jetpack Compose through a cupcake orde
 ![Cupcake Order App Screenshot](./screenshot.png)
 
 ## Features
-- **Order Cupcake Flow**: Seamlessly navigate through the cupcake ordering process with Jetpack Compose navigation components.
-- **Order Summary**: Easily review your cupcake order details before finalizing.
-- **Multiple Flavors**: Choose from a variety of delicious cupcake flavors.
-- **Quantity Selection**: Select the number of cupcakes you want to order.
-- **Pickup Date**: Choose a convenient pickup date for your order.
-- **Share Order**: Effortlessly share your cupcake order details with friends and family through other apps using Android intents.
+
+- **Quantity Selection**: Select the number of cupcakes to order.
+- **Multiple Flavors**: Choose from a variety of cupcake flavors.
+- **Pickup Date**: Choose a pickup date for your cupcake order.
+- **Order Summary**: Review your cupcake order details before finalizing.
+- **Share Order**: Share your cupcake order details through other apps using Android intents.
 
 ## Installation Instructions
+
 1. [Download](https://github.com/luiisca/hey-kid/releases/download/v1.0/hey-kid.apk) the APK file.
 2. Install the APK on your Android device by enabling installation from unknown sources if necessary.
 3. Open the app and start navigating through the cupcake ordering process using the Jetpack Compose navigation features!
@@ -29,7 +30,7 @@ To get a local copy up and running follow these simple steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/yourusername/cupcake-order-app.git
+   git clone https://github.com/luiisca/hey-kid.git
    ```
 2. Open the project in Android Studio.
 3. Build and run the app on your Android device or emulator.
